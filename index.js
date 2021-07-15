@@ -43,28 +43,45 @@ const questions = [
     type: 'input',
     name: 'installation',
     message: "What do we need to run in order to install this application.",
+    default: "npm install"
   },
   {
     type: 'input',
-    name: 'description',
+    name: 'usage',
+    message: "What does the user need to know for the project?",
+  },
+  {
+    type: 'input',
+    name: 'credits',
+    message: "List any other colloborators and partners.",
+  },
+  {
+    type: 'input',
+    name: 'license',
+    message: "Please provide a license of your repository.",
+    choices: ['none', 'MIT', 'GPL 3.0', 'BSD 3'],
+  },
+  {
+    type: 'input',
+    name: 'contributing',
     message: "Please provide a description of your repository.",
   },
   {
     type: 'input',
-    name: 'description',
-    message: "Please provide a description of your repository.",
-  },
-  {
-    type: 'input',
-    name: 'description',
+    name: 'badges',
     message: "Please provide a description of your repository.",
   },];
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+function writeToFile(fileName, data) {
+    return fs.writeFileSync(path.join(process.cwd(),fileName), data)
+}
 
 // TODO: Create a function to initialize app
-function init() {}
-
+function init() {
+    inquirer.prompt(questions).then(inquirerAnswers => {
+        writeToFile('README.md', generateMarkdown({ ...inquirerAnswers}))
+    });
+}
 // Function call to initialize app
 init();
