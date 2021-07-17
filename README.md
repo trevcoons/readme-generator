@@ -20,5 +20,5 @@ This is a readme.md generator that allows users to answer simple questions using
 
 ## Acknowledgments
 
-Thanks to UC Berkeley Coding Bootcamp for teaching me HTML, JavaScript, JQuery, and BootStrap.
+Thanks to UC Berkeley Coding Bootcamp for teaching me JavaScript and NPM Inquirer
 
